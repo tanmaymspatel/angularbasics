@@ -1,0 +1,32 @@
+// Theme Primary Color
+$primary: #04471c;
+
+// Mainly use for UI controls like Buttons
+$secondary: #fbde4a;
+
+// Used for Footer Section
+$accent: #021a28;
+
+// Mainly use for Normal Text color
+$gray: #f4f4f4;
+
+// Additional Shades of gray color
+$light: #f8fafc;
+$extra-light: #fcfcfc;
+
+// Dedicated for button text only
+$btn-text-primary: $primary;
+
+
+// sidebar
+
+$sidebar-bg : $gray;
+
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "gray": $gray,
+  "light": $light,
+  "accent": $accent
+);

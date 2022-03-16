@@ -1,0 +1,9 @@
+#sidebar{
+    flex: 0 0 $sidebar-size; 
+    min-width: $sidebar-size;
+    background-color: $sidebar-bg;
+    .side-header{
+        flex: 0 0 $side-header-size;
+        min-height: $side-header-size;
+    }
+}

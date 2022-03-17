@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ParentComponent implements OnInit {
 
   public inputValue : string;
+  public cities : string[] = [];
   constructor() { }
 
   ngOnInit(): void {
@@ -16,6 +17,10 @@ export class ParentComponent implements OnInit {
   passVal(value: string) {
     console.log(value);
     this.inputValue = value;
+  }
+
+  cityToParent(city : string){
+    this.cities.push(city);
   }
 }
 

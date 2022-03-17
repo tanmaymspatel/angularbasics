@@ -1,2 +1,10 @@
- 
-<p> Hello, Your Name is <strong> {{name}} </strong> and it comes from parent component.</p>
+<div class="child-component p-5 border">
+    <h5>Data from parent</h5>
+    <p> Hello, Your Name is <strong> {{name}} </strong> and it comes from parent component.</p>
+
+    <h5 class="mt-4">Data to parent</h5>
+    <div class="my-5">
+        <label for="childName" class="form-label">Enter City Name</label>
+        <input type="text" class="form-control" id="ChildName" (keyup.enter)="cityValue(childInput.value)" #childInput>
+    </div>
+</div>

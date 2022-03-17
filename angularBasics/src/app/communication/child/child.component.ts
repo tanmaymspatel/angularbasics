@@ -1,5 +1,5 @@
-import { Component, Input, OnInit} from '@angular/core';
 
+import { Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
@@ -8,9 +8,15 @@ import { Component, Input, OnInit} from '@angular/core';
 export class ChildComponent implements OnInit {
 
   @Input() name : string;
+  @Output() cityName: EventEmitter<string> = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  cityValue(val : string) {
+    console.log(val);
+    this.cityName.emit(val);
   }
 
 }

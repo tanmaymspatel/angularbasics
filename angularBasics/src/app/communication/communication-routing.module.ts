@@ -7,7 +7,7 @@ import { ParentComponent } from './parent/parent.component';
 const routes: Routes = [{
   path: '', children: [
     {
-      path: ' ', redirectTo: 'parent', pathMatch: 'full'
+      path: '', redirectTo: 'parent', pathMatch: 'full'
     },
     {
       path: 'parent', component: ParentComponent

@@ -1,0 +1,68 @@
+{
+  "customers": [
+    {
+      "firstname": "Tanmay",
+      "lastname": "patel",
+      "age": 25,
+      "gender": "Male",
+      "city": "Surat",
+      "id": 1
+    },
+    {
+      "firstname": "Viral",
+      "lastname": "Patel",
+      "age": 26,
+      "gender": "Male",
+      "city": "valsad",
+      "id": 2
+    },
+    {
+      "firstname": "Sushil",
+      "lastname": "Hariakar",
+      "age": 20,
+      "gender": "Male",
+      "city": "Atul",
+      "id": 3
+    },
+    {
+      "firstname": "Abhishek",
+      "lastname": "Patel",
+      "age": 28,
+      "gender": "Male",
+      "city": "Valsad",
+      "id": 4
+    },
+    {
+      "firstname": "Divya",
+      "lastname": "Patel",
+      "age": 28,
+      "gender": "Female",
+      "city": "Valsad",
+      "id": 5
+    },
+    {
+      "firstname": "tanmay",
+      "lastname": "raj",
+      "age": 34,
+      "gender": "Female",
+      "city": "surat",
+      "id": 6
+    },
+    {
+      "firstname": "Dharmit",
+      "lastname": "Shah",
+      "age": 25,
+      "gender": "Male",
+      "city": "Surat",
+      "id": 7
+    },
+    {
+      "firstname": "tanmay",
+      "lastname": "raj",
+      "age": 23,
+      "gender": "Male",
+      "city": "surat",
+      "id": 8
+    }
+  ]
+}

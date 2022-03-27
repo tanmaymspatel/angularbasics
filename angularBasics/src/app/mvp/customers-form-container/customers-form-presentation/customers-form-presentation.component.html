@@ -1,0 +1,50 @@
+
+<div class="container-fluid pt-4">
+    <h2 class="text-center">{{formTitle}}</h2>
+  
+    
+  <div class="custpmer-form p-4">
+  
+    <form [formGroup]="customersForm">
+        
+      <div>
+        <label for="firstname" class="form-label">First Name</label>
+        <input class="form-control" formControlName="firstname" type="text" id="firstname" name="firstname" placeholder="Your name..">
+        <!-- <small class="required" *ngIf="!employeeform.get('firstname')?.valid && employeeform.get('firstname')?.touched">This Field is required</small> -->
+      </div>
+  
+      <div>
+        <label for="lastname" class="form-label">Last Name</label>
+        <input class="form-control" formControlName="lastname" type="text" id="lastname" name="lastname" placeholder="Your last name..">
+        <!-- <small class="required" *ngIf="!employeeform.get('lastname')?.valid && employeeform.get('lastname')?.touched">This Field is required</small> -->
+      </div>
+  
+      <div>
+          <label for="age" class="form-label">Age</label>
+          <input class="form-control" type="number" formControlName="age" id="age" name="age" placeholder="age">
+      </div>
+  
+  
+      <div>
+        <label for="gender" class="form-label">Gender:</label>
+        <label  for="male" class="ms-4 form-label">Male</label>
+        <input class="form-check-input" formControlName="gender" value="Male" type="radio" name="gender" id="male">
+        <label for="female" class="ms-4 form-label">Female</label>
+        <input class="form-check-input" formControlName="gender" value="Female" type="radio" name="gender" id="female"><br>
+      </div>
+  
+      <div>
+        <label for="city" class="form-label">City</label>
+        <input class="form-control" type="text" formControlName="city" id="city" name="city" placeholder="City">
+    </div>
+  
+      <div class="pt-4">
+        <input type="button" class="btn btn-primary" value="Submit" (click)="onSubmit()">
+        <input type="button" class="btn btn-danger ms-3" value="cancel" (click)="onCancel()">
+      </div>    
+  
+    </form>
+  </div> 
+  </div>
+  
+  

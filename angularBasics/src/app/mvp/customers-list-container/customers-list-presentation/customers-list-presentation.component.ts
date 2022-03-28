@@ -37,14 +37,17 @@ export class CustomersListPresentationComponent implements OnInit {
     this.deleteCustomer();
   }
 
+  public openOverlay(){
+    this.listPresenterService.openFilter();
+  }
 
-  onDelete(id:number){
+  public onDelete(id:number){
     // console.log(id);
     
     this.listPresenterService.onDelete(id);
   }
 
-  deleteCustomer(){
+  public deleteCustomer(){
     this.listPresenterService.delete$.subscribe((res)=>{
       // console.log(res);      
       this.delete.emit(res);      

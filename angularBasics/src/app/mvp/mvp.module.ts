@@ -9,6 +9,8 @@ import { CustomersFormPresentationComponent } from './customers-form-container/c
 import { CustomersListPresentationComponent } from './customers-list-container/customers-list-presentation/customers-list-presentation.component';
 import { SharedModule } from '../shared/shared.module';
 import { CustomerService } from './services/customer.service';
+import { FilterPresentaionComponent } from './customers-list-container/customers-list-presentation/filter-presentaion/filter-presentaion.component';
+
 
 
 @NgModule({
@@ -17,12 +19,13 @@ import { CustomerService } from './services/customer.service';
     CustomersFormContainerComponent,
     CustomersListContainerComponent,
     CustomersFormPresentationComponent,
-    CustomersListPresentationComponent
+    CustomersListPresentationComponent,
+    FilterPresentaionComponent
   ],
   imports: [
     CommonModule,
     MvpRoutingModule,
-    SharedModule
+   SharedModule
   ],
   providers:[CustomerService]
 })

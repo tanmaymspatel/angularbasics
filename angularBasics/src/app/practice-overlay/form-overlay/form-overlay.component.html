@@ -1,0 +1,34 @@
+<form class="d-flex flex-column bg-white p-4 h-100" [formGroup]="overlayForm">
+
+    <h5>Filter</h5>
+
+    <!-- Lastname -->
+    <div class="mb-3">
+          <label for="" class="form-label">By Lastname: </label>
+          <input formControlName="firstName" type="text" class="form-control" placeholder="Filter for First Name">
+    </div>
+    
+    <div class="mb-3">
+          <label for="" class="form-label">By Lastname: </label>
+          <input formControlName="lastName" type="text" class="form-control" placeholder="Filter for Last Name">
+    </div>
+
+    <!-- City -->
+    <div class="mb-3">
+          <label for="" class="form-label">By City: </label>
+          <input formControlName="contactNumber" type="text" class="form-control" placeholder="Filter for City">
+    </div>
+
+    <!-- Age -->
+    <div class="mb-3">
+          <label for="" class="form-label">By Age: </label>
+          <input formControlName="age" type="text" class="form-control" placeholder="Filter for age">
+    </div>
+
+    
+
+    <div class="mb-3">
+          <button type="button" class="btn" >Filter</button>
+          <button type="button" class="btn" >Cancel</button>
+    </div>
+</form>

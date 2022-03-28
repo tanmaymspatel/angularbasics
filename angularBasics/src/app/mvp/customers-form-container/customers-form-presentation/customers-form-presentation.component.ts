@@ -31,6 +31,7 @@ export class CustomersFormPresentationComponent implements OnInit {
    }
 
   public customersForm : FormGroup;
+  public submitted : boolean = false;
   public formTitle : string = "Add Customer";
 
   private _customerEditData : Customers | null; 
@@ -58,6 +59,7 @@ export class CustomersFormPresentationComponent implements OnInit {
 
 
   onSubmit(){
+    this.submitted = true;
     console.log(this.customersForm);
     this.customerPresenterService.submitData(this.customersForm);
     

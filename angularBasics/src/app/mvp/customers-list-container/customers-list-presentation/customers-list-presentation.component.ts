@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { Customers } from '../../model/customer.model';
 import { CustomersListPresenterService } from '../customers-list-presenter/customers-list-presenter.service';
 
@@ -11,26 +12,30 @@ import { CustomersListPresenterService } from '../customers-list-presenter/custo
 })
 
 export class CustomersListPresentationComponent implements OnInit {
+  public dataList: Customers[];
 
   @Input() public set customersData(value : Customers[] | null){
     console.log(value);
-    this._customerData = value;
+    if(value){
+      this._customerData = value;
+    }
   }
 
   @Output() public delete: EventEmitter<number>;
 
-  public get customersData(): Customers[] | null{
+  public get customersData(): Customers[]{
     return this._customerData;
   }
 
 
-  private _customerData : Customers[] | null;
+  private _customerData!: Customers[];
  
 
   constructor(
-    private listPresenterService : CustomersListPresenterService
+    private listPresenterService : CustomersListPresenterService,private cdr:ChangeDetectorRef
     ) { 
       this.delete = new EventEmitter();
+      this.dataList = [];
     }
 
   ngOnInit(): void {
@@ -53,5 +58,14 @@ export class CustomersListPresentationComponent implements OnInit {
       this.delete.emit(res);      
     })
   }
+  changePage(datalist:Customers[]){
+    this.dataList = datalist;
+    this.cdr.markForCheck();
+  }
 
+  drop(event: CdkDragDrop<Customers[]>) {
+    moveItemInArray(this.dataList, event.previousIndex, event.currentIndex);
+  }
 }
+
+

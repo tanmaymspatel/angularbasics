@@ -29,8 +29,8 @@
                 </tr>
             </thead>
 
-            <tbody>
-                <tr *ngFor="let customer of customersData; let i = index">
+            <tbody cdkDropList *ngIf="dataList" (cdkDropListDropped)="drop($event)">
+                <tr class="align-middle" *ngFor="let customer of dataList; let i = index" cdkDrag>
                     <td>{{i+1}}</td>
                     <td>{{customer.firstname}}</td>
                     <td>{{customer.lastname}}</td>
@@ -44,5 +44,6 @@
                 </tr>
             </tbody>
         </table>
+        <app-pagination [items]="customersData" [itemsPerPage]="5" (changePage)="changePage($event)"></app-pagination>
     </div>
 </div>

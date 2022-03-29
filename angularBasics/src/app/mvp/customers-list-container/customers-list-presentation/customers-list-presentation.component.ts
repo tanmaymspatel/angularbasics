@@ -13,10 +13,15 @@ import { CustomersListPresenterService } from '../customers-list-presenter/custo
 
 export class CustomersListPresentationComponent implements OnInit {
   public dataList: Customers[];
+  public isSort: boolean = false;
+  public sortItems:any;
 
   @Input() public set customersData(value : Customers[] | null){
     console.log(value);
     if(value){
+      if(!this._originalCustomersList){
+        this._originalCustomersList = value;
+      }
       this._customerData = value;
     }
   }
@@ -29,6 +34,7 @@ export class CustomersListPresentationComponent implements OnInit {
 
 
   private _customerData!: Customers[];
+  private _originalCustomersList : Customers[];
  
 
   constructor(
@@ -40,10 +46,11 @@ export class CustomersListPresentationComponent implements OnInit {
 
   ngOnInit(): void {
     this.deleteCustomer();
+    this.getFilteredData();
   }
 
   public openOverlay(){
-    this.listPresenterService.openFilter();
+    this.listPresenterService.openFilter(this._originalCustomersList);
   }
 
   public onDelete(id:number){
@@ -65,6 +72,25 @@ export class CustomersListPresentationComponent implements OnInit {
 
   drop(event: CdkDragDrop<Customers[]>) {
     moveItemInArray(this.dataList, event.previousIndex, event.currentIndex);
+  }
+
+  // get filtered data
+  private getFilteredData(){
+    this.listPresenterService.filterData$.subscribe((res)=>{
+      // console.log(res);
+      this._customerData = res;
+      this.cdr.markForCheck();
+    })
+  }
+
+
+  // data sorting
+  sort(event:any){
+    this.isSort = !this.isSort;
+    this.sortItems = event.target.innerHTML;
+    console.log(this.sortItems);
+    
+    this.listPresenterService.dataSort(this.sortItems, this.dataList, this.isSort);
   }
 }
 

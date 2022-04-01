@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'communication', loadChildren: () => import('./communication/communication.module').then(m => m.CommunicationModule) },
   { path: 'mvp', loadChildren: () => import('./mvp/mvp.module').then(m => m.MvpModule) },
   // { path: 'overlay', loadChildren: () => import('./overlay/overlay.module').then(m => m.OverlayModule) },
-  { path: 'overlay', loadChildren: () => import('./practice-overlay/practice-overlay.module').then(m => m.PracticeOverlayModule) }];
+  { path: 'overlay', loadChildren: () => import('./practice-overlay/practice-overlay.module').then(m => m.PracticeOverlayModule) },
+  { path: 'file-upload', loadChildren: () => import('./file-upload/file-upload.module').then(m => m.FileUploadModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

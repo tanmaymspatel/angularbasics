@@ -1,0 +1,29 @@
+
+<div class="container">
+    <div class="mt-5">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>File Name</th>
+                    <th>File Size</th>
+                    <th>File Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of fileData; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{data.filename}}</td>
+                    <td>{{data.size}}</td>
+                    <td>{{data.type}}</td>
+                    <td><button class="btn btn-primary" (click)="showFile(data.content, data.type)">View</button></td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="mt-4">
+        <button class="btn btn-success" routerLink="../upload">Add New File</button>
+    </div>
+</div>

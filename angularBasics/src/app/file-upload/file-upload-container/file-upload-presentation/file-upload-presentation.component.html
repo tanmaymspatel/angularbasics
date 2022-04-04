@@ -1,0 +1,16 @@
+<div class="container">
+
+  <div class="dropzone d-flex align-items-center justify-content-center mt-5" appFileDragAndDrop
+    (filesChangeEmiter)="onFileChange($event)">
+    <div class="text-wrapper ">
+      <div class="centered mb-4">
+        <input type="file" name="file" id="file" (change)="onFileChange($event.target)" multiple />
+        <button class="btn btn-primary" type="button" (click)="addFiles()" routerLink="../file-list">Upload</button>
+      </div>
+
+    </div>
+  </div>
+  <div class="mt-4">
+    <button class="btn btn-primary" routerLink="../file-list">View the List</button>
+  </div>
+</div>

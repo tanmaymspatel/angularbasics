@@ -22,4 +22,9 @@ export class FileUploadService {
   public getFile(): Observable<FileData[]>{
     return this.http.get<FileData[]>(`${this.apiLink}/files`)
   }
+
+  //delete file
+  public deleteFile(i:number) : Observable<FileData>{
+    return this.http.delete<FileData>(`${this.apiLink}/files/${i}`)
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FileData } from '../../model/files.model';
 import { FileListPresenterService } from '../file-list-presenter/file-list-presenter.service';
 
@@ -19,6 +19,7 @@ export class FileListPresentationComponent implements OnInit {
     return this._fileData;
   }
   
+  @Output() public deleteFile : EventEmitter<number> = new EventEmitter()
   
   constructor(private flpService : FileListPresenterService) { }
 
@@ -29,5 +30,8 @@ export class FileListPresentationComponent implements OnInit {
     this.flpService.viewFile(content, type);
   }
 
+  public delete(i:number){
+    this.deleteFile.emit(i);
+  }
 
 }

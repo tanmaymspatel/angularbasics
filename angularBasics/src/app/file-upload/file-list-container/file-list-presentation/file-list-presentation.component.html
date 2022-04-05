@@ -15,9 +15,12 @@
                 <tr *ngFor="let data of fileData; let i = index">
                     <td>{{i+1}}</td>
                     <td>{{data.filename}}</td>
-                    <td>{{data.size}}</td>
+                    <td>{{(data.size/1024) | number : '1.1-2'}} KB</td>
                     <td>{{data.type}}</td>
-                    <td><button class="btn btn-primary" (click)="showFile(data.content, data.type)">View</button></td>
+                    <td>
+                        <button class="btn btn-primary" (click)="showFile(data.content, data.type)">View</button>
+                        <button class="btn btn-danger ms-3" (click)="delete(i)">Delete</button>
+                    </td>
                 </tr>
             </tbody>
 

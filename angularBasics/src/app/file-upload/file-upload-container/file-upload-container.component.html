@@ -1,4 +1,5 @@
-<app-file-upload-presentation
+<app-file-upload-presentation 
+[filesToCheck]="fileDataList$ | async"
 (filesUpload) = saveFile($event)
 >
 </app-file-upload-presentation>

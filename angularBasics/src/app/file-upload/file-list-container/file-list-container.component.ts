@@ -24,4 +24,16 @@ export class FileListContainerComponent implements OnInit {
   public getFiles(){
     this.fileDataList$ = this.uploadService.getFile();
   }
+  
+  // delete file
+  deleteFile(i : number){
+    this.uploadService.deleteFile(i).subscribe({
+      next: () => {
+        this.fileDataList$ = this.uploadService.getFile();
+        alert('Data Deleted')
+      },
+
+      error: (e) => { console.log(e);}
+    })
+  }
 }

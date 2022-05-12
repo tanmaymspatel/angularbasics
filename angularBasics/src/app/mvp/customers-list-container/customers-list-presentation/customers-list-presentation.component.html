@@ -10,40 +10,93 @@
         <!-- <div *ngIf="isFilterMode" class="filter-notification-badge rounded-circle position-relative"></div>
         </div> -->
     </div>
+    <!-- All customer List -->
+    <div class="row g-3">
+        <div class="col-4">
+            <h2 class="text-center">
+                Customer List
+            </h2>
+            <div class="pt-4">
+                <table class="table w-100">
+                    <thead>
+                        <tr (click)="sort($event)">
+                            <th>#</th>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                        </tr>
+                    </thead>
 
-    <div>
-        <h2 class="text-center">Customer List</h2>
-    </div>
+                    <tbody cdkDropList *ngIf="dataList" (cdkDropListDropped)="drop($event)">
+                        <tr class="align-middle" *ngFor="let customer of dataList; let i = index;" cdkDrag
+                            (click)="ShowData(customer.id)">
+                            <td>{{i+1}}</td>
+                            <td>{{customer.firstname}}</td>
+                            <td>{{customer.lastname}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <table class="table w-100">
+                <thead>
+                    <tr (click)="sort($event)">
+                        <th>#</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>City</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
 
-    <div class="pt-4">
-        <table class="table w-100">
-            <thead>
-                <tr (click)="sort($event)">
-                    <th>#</th>
-                    <th>FirstName</th>
-                    <th>LastName</th>
-                    <th>Age</th>
-                    <th>Gender</th>
-                    <th>City</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
+                <tbody cdkDropList *ngIf="dataList" (cdkDropListDropped)="drop($event)">
+                    <tr class="align-middle" *ngFor="let customer of dataList; let i = index" cdkDrag>
+                        <td>{{i+1}}</td>
+                        <td>{{customer.firstname}}</td>
+                        <td>{{customer.lastname}}</td>
+                        <td>{{customer.age}}</td>
+                        <td>{{customer.gender}}</td>
+                        <td>{{customer.city}}</td>
+                        <td>
+                            <button class=" btn btn-primary" routerLink="/mvp/edit/{{customer.id}}">Edit</button>
+                            <button class=" btn btn-danger ms-2" (click)="onDelete(customer.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table> -->
+                <app-pagination [items]="customersData" [itemsPerPage]="5" (changePage)="changePage($event)">
+                </app-pagination>
+            </div>
+        </div>
 
-            <tbody cdkDropList *ngIf="dataList" (cdkDropListDropped)="drop($event)">
-                <tr class="align-middle" *ngFor="let customer of dataList; let i = index" cdkDrag>
-                    <td>{{i+1}}</td>
-                    <td>{{customer.firstname}}</td>
-                    <td>{{customer.lastname}}</td>
-                    <td>{{customer.age}}</td>
-                    <td>{{customer.gender}}</td>
-                    <td>{{customer.city}}</td>
-                    <td>
-                        <button class=" btn btn-primary" routerLink="/mvp/edit/{{customer.id}}">Edit</button>
-                        <button class=" btn btn-danger ms-2" (click)="onDelete(customer.id)">Delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <app-pagination [items]="customersData" [itemsPerPage]="5" (changePage)="changePage($event)"></app-pagination>
+        <!-- Single customer details -->
+        <div class="col-8">
+            <h2>Customer's Details</h2>
+            <div class="pt-4">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td>First Name </td>
+                            <td>{{CustomerDataById.firstname}}</td>
+                        </tr>
+                        <tr>
+                            <td>Last Name </td>
+                            <td>{{CustomerDataById.lastname}}</td>
+                        </tr>
+                        <tr>
+                            <td>Age </td>
+                            <td>{{CustomerDataById.age}}</td>
+                        </tr>
+                        <tr>
+                            <td>Gender </td>
+                            <td>{{CustomerDataById.gender}}</td>
+                        </tr>
+                        <tr>
+                            <td>City :</td>
+                            <td>{{CustomerDataById.city}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>

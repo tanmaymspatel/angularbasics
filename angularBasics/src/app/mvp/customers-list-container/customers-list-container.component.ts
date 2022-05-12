@@ -11,6 +11,7 @@ import { CustomerService } from '../services/customer.service';
 export class CustomersListContainerComponent implements OnInit {
 
   public customersData$ : Observable<Customers[]>
+  public customerDataById : Observable<Customers>
 
   constructor(
     private customerService : CustomerService
@@ -28,6 +29,10 @@ export class CustomersListContainerComponent implements OnInit {
       console.log(`${id} is deleted`);
       this.customersData$ = this.customerService.getCustomersList();
     })
+  }
+
+  public customerId(id:number){
+    // console.log(id);
   }
 
 }

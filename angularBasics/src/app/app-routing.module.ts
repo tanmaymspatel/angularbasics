@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'mvp', loadChildren: () => import('./mvp/mvp.module').then(m => m.MvpModule) },
   // { path: 'overlay', loadChildren: () => import('./overlay/overlay.module').then(m => m.OverlayModule) },
   { path: 'overlay', loadChildren: () => import('./practice-overlay/practice-overlay.module').then(m => m.PracticeOverlayModule) },
-  { path: 'file-upload', loadChildren: () => import('./file-upload/file-upload.module').then(m => m.FileUploadModule) }];
+  { path: 'file-upload', loadChildren: () => import('./file-upload/file-upload.module').then(m => m.FileUploadModule) },
+  { path: 'ngselect', loadChildren: () => import('./ngselect/ngselect.module').then(m => m.NgselectModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -38,7 +38,7 @@ export class PaginationComponent implements OnInit {
     // get new page of items from items array
     var pageOfItems = this.items.slice(this.pager.startIndex, this.pager.endIndex + 1);
     
-    console.log(pageOfItems,'page pf Index herer')
+    // console.log(pageOfItems,'page pf Index herer')
     // call change page function in parent component
 
     this.changePage.emit(pageOfItems);

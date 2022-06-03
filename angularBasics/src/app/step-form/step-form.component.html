@@ -1,0 +1,187 @@
+<div class="container">
+    <div class="step-form">
+        <div class="progress-bar mb-5">
+            <div class="row">
+                <div class="col-4 steps step-1" [ngClass]="step >= 1 ? 'active ' : 'inactive'">
+                    <span class="icon icon-user fs-3 p-2"></span>
+                </div>
+                <div class="col-4 steps step-2" [ngClass]="step >= 2 ? 'active ' : 'inactive'">
+                    <span class="icon icon-home fs-3 p-2"></span>
+                </div>
+                <div class="col-4 steps step-3" [ngClass]="step == 3 ? 'active ' : 'inactive'">
+                    <span class="icon icon-cap fs-3 p-2"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form" *ngIf="step == 1">
+            <h2>Personal Details</h2>
+            <form class="pt-3" [formGroup]="personalDetailsForm">
+                <div class="row py-2">
+                    <div class="col-2">
+                        <label for="firstName" class="form-label">First Name</label>
+                    </div>
+                    <div class="col-10">
+                        <input class="form-control" formControlName="firstName" type="text" id="firstName"
+                            name="firstName" placeholder="Enter Your First Name">
+                        <div class="error"
+                            *ngIf="this.personalSubmitted || personalDetailsForm.get('firstName')?.touched  && personalDetailsForm.get('firstName')?.invalid ">
+                            <small class="text-danger"
+                                *ngIf="personalDetailsForm.get('firstName')?.errors && personalDetailsForm.get('firstName')?.errors!['required']">This
+                                Field is
+                                required</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-2">
+                        <label for="lastName" class="form-label">Last Name</label>
+                    </div>
+                    <div class="col-10">
+                        <input class="form-control" formControlName="lastName" type="text" id="lastName" name="lastName"
+                            placeholder="Enter Your Last Name">
+                        <div class="error"
+                            *ngIf="this.personalSubmitted || personalDetailsForm.get('lastName')?.touched  && personalDetailsForm.get('lastName')?.invalid ">
+                            <small class="text-danger"
+                                *ngIf="personalDetailsForm.get('lastName')?.errors && personalDetailsForm.get('lastName')?.errors!['required']">This
+                                Field is
+                                required</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-2">
+                        <label for="age" class="form-label">Age</label>
+                    </div>
+                    <div class="col-10">
+                        <input class="form-control" formControlName="age" type="text" id="age" name="age"
+                            placeholder="Enter Your Age">
+                        <div class="error"
+                            *ngIf="this.personalSubmitted || personalDetailsForm.get('age')?.touched  && personalDetailsForm.get('age')?.invalid ">
+                            <small class="text-danger"
+                                *ngIf="personalDetailsForm.get('age')?.errors && personalDetailsForm.get('age')?.errors!['required']">This
+                                Field is
+                                required</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-3">
+                    <button class="btn btn-primary" (click)="onNext()">Next</button>
+                </div>
+            </form>
+        </div>
+        <div class="form" *ngIf="step == 2">
+            <h2>Address Details</h2>
+            <form class="pt-3" [formGroup]="addressDetailsForm">
+                <div class="row py-2">
+                    <div class="col-2">
+                        <label for="firstLine" class="form-label">First Address line</label>
+                    </div>
+                    <div class="col-10">
+                        <input class="form-control" formControlName="firstLine" type="text" id="firstLine"
+                            name="firstLine" placeholder="Enter Your First Address Line">
+                        <div class="error"
+                            *ngIf="this.addressSubmitted || addressDetailsForm.get('firstLine')?.touched  && addressDetailsForm.get('firstLine')?.invalid ">
+                            <small class="text-danger"
+                                *ngIf="addressDetailsForm.get('firstLine')?.errors && addressDetailsForm.get('firstLine')?.errors!['required']">This
+                                Field is
+                                required</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-2">
+                        <label for="secondLine" class="form-label">Second Address Line</label>
+                    </div>
+                    <div class="col-10">
+                        <input class="form-control" formControlName="secondLine" type="text" id="secondLine"
+                            name="secondLine" placeholder="Enter Your Second Address Line">
+                        <div class="error"
+                            *ngIf="this.addressSubmitted || addressDetailsForm.get('secondLine')?.touched  && addressDetailsForm.get('secondLine')?.invalid ">
+                            <small class="text-danger"
+                                *ngIf="addressDetailsForm.get('secondLine')?.errors && addressDetailsForm.get('secondLine')?.errors!['required']">This
+                                Field is
+                                required</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-2">
+                        <label for="city" class="form-label">City</label>
+                    </div>
+                    <div class="col-10">
+                        <input class="form-control" formControlName="city" type="text" id="city" name="city"
+                            placeholder="Enter Your City">
+                        <div class="error"
+                            *ngIf="this.addressSubmitted || addressDetailsForm.get('city')?.touched  && addressDetailsForm.get('city')?.invalid ">
+                            <small class="text-danger"
+                                *ngIf="addressDetailsForm.get('city')?.errors && addressDetailsForm.get('city')?.errors!['required']">This
+                                Field is
+                                required</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-3">
+                    <button class="btn btn-success" (click)="onPrevious()">Previous</button>
+                    <button class="btn btn-primary ms-3" (click)="onNext()">Next</button>
+                </div>
+            </form>
+        </div>
+        <div class="form" *ngIf="step == 3">
+            <h2>Education Details</h2>
+            <form class="pt-3" [formGroup]="educationDetailsForm">
+                <div class="row py-2">
+                    <div class="col-2">
+                        <label for="tenthMarks" class="form-label">Enter 10th Marks</label>
+                    </div>
+                    <div class="col-10">
+                        <input class="form-control" formControlName="tenthMarks" type="text" id="tenthMarks"
+                            name="tenthMarks" placeholder="Enter Your 10th Marks">
+                        <div class="error"
+                            *ngIf="this.educationSubmitted || educationDetailsForm.get('tenthMarks')?.touched  && educationDetailsForm.get('tenthMarks')?.invalid ">
+                            <small class="text-danger"
+                                *ngIf="educationDetailsForm.get('tenthMarks')?.errors && educationDetailsForm.get('tenthMarks')?.errors!['required']">This
+                                Field is
+                                required</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-2">
+                        <label for="twelfthMarks" class="form-label">Enter 12th Marks</label>
+                    </div>
+                    <div class="col-10">
+                        <input class="form-control" formControlName="twelfthMarks" type="text" id="twelfthMarks"
+                            name="twelfthMarks" placeholder="Enter Your 12th Marks">
+                        <div class="error"
+                            *ngIf="this.educationSubmitted || educationDetailsForm.get('twelfthMarks')?.touched  && educationDetailsForm.get('twelfthMarks')?.invalid ">
+                            <small class="text-danger"
+                                *ngIf="educationDetailsForm.get('twelfthMarks')?.errors && educationDetailsForm.get('twelfthMarks')?.errors!['required']">This
+                                Field is
+                                required</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row py-2">
+                    <div class="col-2">
+                        <label for="bachelorsMarks" class="form-label">Enter Bachelor's Marks</label>
+                    </div>
+                    <div class="col-10">
+                        <input class="form-control" formControlName="bachelorsMarks" type="text" id="bachelorsMarks"
+                            name="bachelorsMarks" placeholder="Enter Bachelor's Marks">
+                        <div class="error"
+                            *ngIf="this.educationSubmitted || educationDetailsForm.get('bachelorsMarks')?.touched  && educationDetailsForm.get('bachelorsMarks')?.invalid ">
+                            <small class="text-danger"
+                                *ngIf="educationDetailsForm.get('bachelorsMarks')?.errors && educationDetailsForm.get('bachelorsMarks')?.errors!['required']">This
+                                Field is
+                                required</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-3">
+                    <button class="btn btn-success" (click)="onPrevious()">Previous</button>
+                    <button class="btn btn-primary ms-3" (click)="onSubmit()">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

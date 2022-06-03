@@ -6,12 +6,14 @@ import { NgselectComponent } from './ngselect.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TabsComponent } from './tabs/tabs.component';
 
 
 @NgModule({
   declarations: [
     NgselectComponent,
-    DropdownComponent
+    DropdownComponent,
+    TabsComponent
   ],
   imports: [
     CommonModule,

@@ -12,10 +12,14 @@
                 <ng-select [items]="people" [multiple]="true" bindLabel="name" [closeOnSelect]="false" bindValue="id"
                     [(ngModel)]="selectedPeople" formControlName="person" [maxSelectedItems]="3">
                     <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
-                        <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected" [ngModelOptions]="{ standalone : true }"/> {{item.name}}
+                        <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"
+                            [ngModelOptions]="{ standalone : true }" /> {{item.name}}
                     </ng-template>
                 </ng-select>
             </div>
         </div>
     </form>
+    <div class="pt-4">
+        <app-tabs></app-tabs>
+    </div>
 </div>

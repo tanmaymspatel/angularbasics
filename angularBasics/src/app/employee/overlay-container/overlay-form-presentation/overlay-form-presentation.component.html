@@ -1,0 +1,50 @@
+<div class="pt-4 mb-4">
+  <form [formGroup]="employeeForm">
+    <div>
+      <label for="firstName" class="form-label">First Name</label>
+      <input class="form-control" formControlName="firstName" type="text" id="firstName" name="firstName"
+        placeholder="Your name..">
+      <div class="error"
+        *ngIf="this.submitted || employeeForm.get('firstName')?.touched  && employeeForm.get('firstName')?.invalid ">
+        <small class="required"
+          *ngIf="employeeForm.get('firstName')?.errors && employeeForm.get('firstName')?.errors!['required']">This Field
+          is
+          required</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="lastName" class="form-label">Last Name</label>
+      <input class="form-control" formControlName="lastName" type="text" id="lastName" name="lastName"
+        placeholder="Your last name..">
+      <div class="error"
+        *ngIf="this.submitted || employeeForm.get('lastName')?.touched  && employeeForm.get('lastName')?.invalid ">
+        <small class="required"
+          *ngIf="employeeForm.get('lastName')?.errors && employeeForm.get('lastName')?.errors!['required']">This Field
+          is
+          required</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="age" class="form-label">Age</label>
+      <input class="form-control" type="number" formControlName="age" id="age" name="age" placeholder="age">
+    </div>
+
+
+    <div>
+      <label for="gender" class="form-label">Gender:</label>
+      <label for="male" class="ms-4 form-label">Male</label>
+      <input class="form-check-input" formControlName="gender" value="Male" type="radio" name="gender" id="male">
+      <label for="female" class="ms-4 form-label">Female</label>
+      <input class="form-check-input" formControlName="gender" value="Female" type="radio" name="gender"
+        id="female"><br>
+    </div>
+
+    <div>
+      <label for="city" class="form-label">City</label>
+      <input class="form-control" type="text" formControlName="city" id="city" name="city" placeholder="City">
+    </div>
+
+  </form>
+</div>

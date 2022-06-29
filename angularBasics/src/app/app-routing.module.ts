@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'file-upload', loadChildren: () => import('./file-upload/file-upload.module').then(m => m.FileUploadModule) },
   { path: 'ngselect', loadChildren: () => import('./ngselect/ngselect.module').then(m => m.NgselectModule) },
   { path: 'step-form', loadChildren: () => import('./step-form/step-form.module').then(m => m.StepFormModule) },
-  { path: 'dynamic-validation', loadChildren: () => import('./dynamic-validation/dynamic-validation.module').then(m => m.DynamicValidationModule) }];
+  { path: 'dynamic-validation', loadChildren: () => import('./dynamic-validation/dynamic-validation.module').then(m => m.DynamicValidationModule) },
+  { path: 'employee', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

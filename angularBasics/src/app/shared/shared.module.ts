@@ -5,13 +5,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { OverlayComponent } from './components/overlay/overlay.component';
 
 
 
 
 @NgModule({
   declarations: [
-    PaginationComponent
+    PaginationComponent,
+    OverlayComponent
   ],
   imports: [
     CommonModule
@@ -21,8 +23,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     OverlayModule,
     ReactiveFormsModule,
     PaginationComponent,
-    DragDropModule
-
+    DragDropModule,
+    OverlayComponent
   ]
 })
 export class SharedModule { }

@@ -1,0 +1,36 @@
+<div class="container employee-list pt-5" #closeOverlay>
+    <div class="mb-4 text-end">
+        <button class="btn btn-primary" (click)="onClickAdd()">Add</button>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employeeData; let i = index">
+                <td>{{employee?.id}}</td>
+                <td>{{employee?.firstName}}</td>
+                <td>{{employee?.lastName}}</td>
+                <td>{{employee?.age}}</td>
+                <td>{{employee?.gender}}</td>
+                <td>{{employee?.city}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="overlay-form" [ngClass]="{'overlay-form-active': this.formActive}">
+    <div class="">
+        <app-overlay>
+            <h4>{{this.formTitle}}</h4>
+            <app-overlay-form-presentation></app-overlay-form-presentation>
+        </app-overlay>
+    </div>
+</div>

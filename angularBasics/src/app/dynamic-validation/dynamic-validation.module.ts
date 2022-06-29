@@ -6,6 +6,7 @@ import { DynamicValidationComponent } from './dynamic-validation.component';
 import { FormPresentationComponent } from './form-container/form-presentation/form-presentation.component';
 import { FormContainerComponent } from './form-container/form-container.component';
 import { SharedModule } from '../shared/shared.module';
+import { MaskingDirective } from './directive/masking.directive';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { SharedModule } from '../shared/shared.module';
     DynamicValidationComponent,
     FormPresentationComponent,
     FormContainerComponent,
+    MaskingDirective,
   ],
   imports: [
     CommonModule,

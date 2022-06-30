@@ -1,6 +1,6 @@
-<div class="container employee-list pt-5" #closeOverlay>
+<div class="container employee-list pt-5">
     <div class="mb-4 text-end">
-        <button class="btn btn-primary" (click)="onClickAdd()">Add</button>
+        <button class="btn btn-primary cursor-pointer" (click)="onClickAdd()">Add</button>
     </div>
     <table class="table">
         <thead>
@@ -11,6 +11,7 @@
                 <th>Age</th>
                 <th>Gender</th>
                 <th>City</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -21,16 +22,22 @@
                 <td>{{employee?.age}}</td>
                 <td>{{employee?.gender}}</td>
                 <td>{{employee?.city}}</td>
+                <td>
+                    <span class="icon icon-edit text-primary"></span>
+                    <span class="ms-4 icon icon-delete text-danger"></span>
+                </td>
             </tr>
         </tbody>
     </table>
 </div>
 
-<div class="overlay-form" [ngClass]="{'overlay-form-active': this.formActive}">
-    <div class="">
-        <app-overlay>
+<div class="overlay-form position-fixed top-0 bottom-0 end-0 start-0 d-flex" [ngClass]="{'overlay-form-active': this.formActive}">
+    <div class="flex-grow-1" (click)="closeOverlay()">
+    </div>
+    <div class="shadow-sm bg-white w-25 ms-auto h-100">
+        <app-overlay (closeOverlay)="closeOverlay()" (saveData)="saveData($event)">
             <h4>{{this.formTitle}}</h4>
-            <app-overlay-form-presentation></app-overlay-form-presentation>
+            <app-overlay-form-presentation #overlayForm></app-overlay-form-presentation>
         </app-overlay>
     </div>
 </div>

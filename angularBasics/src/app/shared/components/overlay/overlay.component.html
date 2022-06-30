@@ -5,7 +5,7 @@
     <ng-content select="app-overlay-form-presentation"></ng-content>
     <!-- Action buttons -->
     <div class="text-end">
-        <button class="btn btn-danger">cancel</button>
-        <button class="btn btn-success ms-3">Save</button>
+        <button class="btn btn-danger" (click)="onButtonClick('Cancel')">Cancel</button>
+        <button class="btn btn-success ms-3" (click)="onButtonClick('Save')">Save</button>
     </div>
 </div>

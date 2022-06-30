@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'app';
-  src:  url('fonts/app.eot?1kyeav');
-  src:  url('fonts/app.eot?1kyeav#iefix') format('embedded-opentype'),
-    url('fonts/app.ttf?1kyeav') format('truetype'),
-    url('fonts/app.woff?1kyeav') format('woff'),
-    url('fonts/app.svg?1kyeav#app') format('svg');
+  src:  url('fonts/app.eot?2op4qq');
+  src:  url('fonts/app.eot?2op4qq#iefix') format('embedded-opentype'),
+    url('fonts/app.ttf?2op4qq') format('truetype'),
+    url('fonts/app.woff?2op4qq') format('woff'),
+    url('fonts/app.svg?2op4qq#app') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,9 +25,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-cap:before {
-  content: "\e90d";
-}
 .icon-sales:before {
   content: "\e901";
 }
@@ -78,4 +75,13 @@
 }
 .icon-billings:before {
   content: "\e908";
+}
+.icon-delete:before {
+  content: "\e910";
+}
+.icon-edit:before {
+  content: "\e90f";
+}
+.icon-cap:before {
+  content: "\e90d";
 }

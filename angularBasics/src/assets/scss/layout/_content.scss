@@ -1,11 +1,12 @@
 .overlay-form {
-    z-index: 999;
-    background: white;
-    position: fixed;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    left: 65%;
+    // z-index: 999;
+    // background: white;
+    // position: fixed;
+    // right: 0;
+    // top: 0;
+    // bottom: 0;
+    // left: 65%;
+    backdrop-filter: blur(6px);
     transform: translateX(100%);
     transition: all 0.3s;
     &.overlay-form-active{

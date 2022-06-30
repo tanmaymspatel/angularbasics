@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Employee } from '../model/employee.model';
+import { Employee, EmployeeForm } from '../model/employee.model';
 import { EmployeeService } from '../services/employee.service';
 
 @Component({
@@ -23,7 +23,12 @@ export class OverlayContainerComponent implements OnInit {
   }
 
   private getEmployeeData() {
-    this.employeeData$ = this._employeeService.getCustomersList();
+    this.employeeData$ = this._employeeService.getEmployeeList();
   }
 
+  public addFormData(data: EmployeeForm) {
+    this._employeeService.addEmployee(data).subscribe(() => {
+      this.getEmployeeData();
+    });
+  }
 }

@@ -11,6 +11,8 @@ import { EmployeeService } from '../services/employee.service';
 export class OverlayContainerComponent implements OnInit {
 
   public employeeData$: Observable<Employee[]>
+  public dataToEdit: EmployeeForm;
+  public editId: number;
 
   constructor(
     private _employeeService: EmployeeService
@@ -30,5 +32,22 @@ export class OverlayContainerComponent implements OnInit {
     this._employeeService.addEmployee(data).subscribe(() => {
       this.getEmployeeData();
     });
+  }
+
+  public deleteData(id: number) {
+    this._employeeService.deleteEmployee(id).subscribe(() => {
+      this.getEmployeeData();
+    })
+  }
+
+  public getEditData(id: number) {
+    this.editId = id;
+    this._employeeService.getEmployeeDataById(id).subscribe((data) => this.dataToEdit = data)
+  }
+
+  public editFormData(employeeForm: EmployeeForm) {
+    this._employeeService.editEmployee(employeeForm, this.editId).subscribe(() => 
+    this.getEmployeeData()
+    )
   }
 }

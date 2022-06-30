@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { EmployeeForm } from '../../model/employee.model';
 import { OverlayFormPresenterService } from '../overlay-form-presenter/overlay-form-presenter.service';
 
 @Component({
@@ -12,6 +13,18 @@ export class OverlayFormPresentationComponent implements OnInit {
 
   public employeeForm: FormGroup;
   public submitted: boolean;
+
+
+  private _dataToEdit: EmployeeForm;
+  public get editId(): EmployeeForm {
+    return this._dataToEdit;
+  }
+  @Input() public set dataToEdit(dataToEdit: EmployeeForm) {
+    if (dataToEdit) {
+      this.employeeForm.patchValue(dataToEdit);
+    }
+  }
+
   constructor(
     private _overlayFormPresenterService: OverlayFormPresenterService
   ) {
@@ -21,7 +34,5 @@ export class OverlayFormPresentationComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
 
 }

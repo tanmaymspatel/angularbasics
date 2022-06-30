@@ -16,15 +16,15 @@
         </thead>
         <tbody>
             <tr *ngFor="let employee of employeeData; let i = index">
-                <td>{{employee?.id}}</td>
+                <td>{{i+1}}</td>
                 <td>{{employee?.firstName}}</td>
                 <td>{{employee?.lastName}}</td>
                 <td>{{employee?.age}}</td>
                 <td>{{employee?.gender}}</td>
                 <td>{{employee?.city}}</td>
                 <td>
-                    <span class="icon icon-edit text-primary"></span>
-                    <span class="ms-4 icon icon-delete text-danger"></span>
+                    <span class="icon icon-edit text-primary" (click)="onEdit(employee.id)"></span>
+                    <span class="ms-4 icon icon-delete text-danger" (click)="onDelete(employee.id)"></span>
                 </td>
             </tr>
         </tbody>
@@ -35,9 +35,9 @@
     <div class="flex-grow-1" (click)="closeOverlay()">
     </div>
     <div class="shadow-sm bg-white w-25 ms-auto h-100">
-        <app-overlay (closeOverlay)="closeOverlay()" (saveData)="saveData($event)">
+        <app-overlay (closeOverlay)="closeOverlay()" (saveData)="saveData($event)" (editData)="editData($event)" [formTitle]="formTitle">
             <h4>{{this.formTitle}}</h4>
-            <app-overlay-form-presentation #overlayForm></app-overlay-form-presentation>
+            <app-overlay-form-presentation #overlayForm [dataToEdit]="dataToEdit"></app-overlay-form-presentation>
         </app-overlay>
     </div>
 </div>

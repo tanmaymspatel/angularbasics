@@ -23,18 +23,18 @@ export class EmployeeService {
     return this._http.post<EmployeeForm>(`${this.apiLink}/employees`, formData);
   }
 
-  // delete call - Delete customer from the database
-  public deleteEmployee(id: string): Observable<number> {
+  // delete call - Delete Employee from the database
+  public deleteEmployee(id: number): Observable<number> {
     return this._http.delete<number>(`${this.apiLink}/employees/${id}`);
   }
 
-  // Get customer data from an id
-  public getEmployeeDataById(id: string): Observable<Employee> {
+  // Get Employee data from an id
+  public getEmployeeDataById(id: number): Observable<Employee> {
     return this._http.get<Employee>(`${this.apiLink}/employees/${id}`)
   }
 
-  // Edit call - Edit customer inthe database
-  public editCutomer(formData: Employee, id: string): Observable<Employee> {
-    return this._http.put<Employee>(`${this.apiLink}/employees/${id}`, formData)
+  // Edit call - Edit Employee inthe database
+  public editEmployee(formData: EmployeeForm, id: number): Observable<EmployeeForm> {
+    return this._http.put<EmployeeForm>(`${this.apiLink}/employees/${id}`, formData)
   }
 }

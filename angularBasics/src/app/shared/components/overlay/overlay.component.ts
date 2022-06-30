@@ -1,4 +1,4 @@
-import { Component, ContentChild, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, ContentChild, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { EmployeeForm } from 'src/app/employee/model/employee.model';
 import { OverlayFormPresentationComponent } from 'src/app/employee/overlay-container/overlay-form-presentation/overlay-form-presentation.component';
 
@@ -10,19 +10,28 @@ import { OverlayFormPresentationComponent } from 'src/app/employee/overlay-conta
 export class OverlayComponent implements OnInit {
   @Output() closeOverlay: EventEmitter<Event>;
   @Output() saveData: EventEmitter<EmployeeForm>;
+  @Output() editData: EventEmitter<EmployeeForm>;
+  @Input() formTitle : string;
 
   @ContentChild(OverlayFormPresentationComponent) overlayForm!: OverlayFormPresentationComponent;
 
   constructor() {
     this.closeOverlay = new EventEmitter();
     this.saveData = new EventEmitter();
+    this.editData = new EventEmitter();
   }
 
   ngOnInit(): void {
   }
 
   public onButtonClick(buttonName: any) {
-    if (buttonName === 'Cancel') this.closeOverlay.emit();
-    if (buttonName === 'Save') this.saveData.emit(this.overlayForm.employeeForm.value);
+    if (buttonName === 'Cancel') {
+      this.closeOverlay.emit();
+      this.overlayForm.employeeForm.reset();
+    }
+
+    if (buttonName === 'Save') {
+      this.formTitle === "Edit Employee" ? this.editData.emit(this.overlayForm.employeeForm?.value) : this.saveData.emit(this.overlayForm.employeeForm?.value);
+    }
   }
 }

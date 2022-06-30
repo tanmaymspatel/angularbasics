@@ -1,4 +1,8 @@
 <app-overlay-list-presentation
 [employeeData]="employeeData$ | async"
 (saveFormData)="addFormData($event)"
+(editFormData)="editFormData($event)"
+(deleteId)="deleteData($event)"
+(idToEdit)="getEditData($event)"
+[dataToEdit]="dataToEdit"
 ></app-overlay-list-presentation>

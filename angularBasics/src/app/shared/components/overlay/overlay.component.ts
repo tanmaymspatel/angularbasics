@@ -11,7 +11,7 @@ export class OverlayComponent implements OnInit {
   @Output() closeOverlay: EventEmitter<Event>;
   @Output() saveData: EventEmitter<EmployeeForm>;
   @Output() editData: EventEmitter<EmployeeForm>;
-  @Input() formTitle : string;
+  @Input() formTitle: string;
 
   @ContentChild(OverlayFormPresentationComponent) overlayForm!: OverlayFormPresentationComponent;
 
@@ -32,6 +32,7 @@ export class OverlayComponent implements OnInit {
 
     if (buttonName === 'Save') {
       this.formTitle === "Edit Employee" ? this.editData.emit(this.overlayForm.employeeForm?.value) : this.saveData.emit(this.overlayForm.employeeForm?.value);
+      this.overlayForm.employeeForm.reset();
     }
   }
 }

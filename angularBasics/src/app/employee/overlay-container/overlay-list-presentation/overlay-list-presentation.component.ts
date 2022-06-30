@@ -65,7 +65,8 @@ export class OverlayListPresentationComponent implements OnInit {
     this.formActive = true;
   }
 
-  public editData(employeeForm: EmployeeForm){
+  public editData(employeeForm: EmployeeForm) {
     this.editFormData.emit(employeeForm);
+    this.closeOverlay();
   }
 }

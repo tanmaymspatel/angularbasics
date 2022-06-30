@@ -68,7 +68,7 @@
   "employees": [
     {
       "firstName": "Tanmay",
-      "lastName": "patel",
+      "lastName": "Patel",
       "age": 25,
       "gender": "Male",
       "city": "Surat",
@@ -83,7 +83,7 @@
       "id": 3
     },
     {
-      "firstName": "Aman",
+      "firstName": "Viral",
       "lastName": "Patel",
       "age": 26,
       "gender": "Male",
